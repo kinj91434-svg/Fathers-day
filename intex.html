@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Father's Day Papa ❤️</title>
+
+<style>
+
+body{
+margin:0;
+padding:0;
+overflow:hidden;
+font-family:Arial,sans-serif;
+background:rgb(241, 89, 114);
+height:100vh;
+text-align:center;
+}
+
+h1{
+margin-top:40px;
+font-size:50px;
+color:white;
+text-shadow:3px 3px 10px black;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{
+text-shadow:0 0 10px white;
+}
+to{
+text-shadow:0 0 30px hotpink;
+}
+}
+
+.message{
+font-size:22px;
+color:white;
+margin-top:10px;
+}
+
+.balloon{
+position:absolute;
+width:80px;
+height:100px;
+border-radius:50%;
+cursor:pointer;
+animation:float 8s infinite linear;
+}
+
+.balloon::after{
+content:'';
+position:absolute;
+width:2px;
+height:60px;
+background:black;
+left:40px;
+top:100px;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh);
+}
+100%{
+transform:translateY(-120vh);
+}
+}
+
+.photo{
+position:absolute;
+width:220px;
+height:220px;
+object-fit:cover;
+border-radius:20px;
+border:5px solid white;
+display:none;
+box-shadow:0 0 20px black;
+animation:appear 5s;
+}
+
+@keyframes appear{
+from{
+transform:scale(0);
+}
+to{
+transform:scale(1);
+}
+}
+
+.floating{
+position:absolute;
+color:white;
+font-size:25px;
+animation:fall 5s linear infinite;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-100px);
+opacity:1;
+}
+100%{
+transform:translateY(100vh);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Happy Father's Day Papa ❤️</h1>
+
+<div class="message">
+A surprise for you , click on every
+
+
+
+ballon 💙
+</div>
+
+<img class="photo" id="photo1" src="Dad.jpeg">
+<img class="photo" id="photo2" src="Papa punit.jpeg">
+<img class="photo" id="photo3" src="WhatsApp Image.jpeg">
+
+<script>
+
+let colors=["red","blue","pink","yellow","purple","orange"];
+
+for(let i=0;i<8;i++){
+
+let balloon=document.createElement("div");
+
+balloon.classList.add("balloon");
+
+balloon.style.background=
+colors[Math.floor(Math.random()*colors.length)];
+
+balloon.style.left=Math.random()*90+"%";
+
+balloon.style.animationDuration=
+(5+Math.random()*5)+"s";
+
+document.body.appendChild(balloon);
+
+balloon.onclick=function(){
+
+balloon.remove();
+
+let photos=["photo1","photo2","photo3"];
+
+let randomPhoto=
+document.getElementById(
+photos[Math.floor(Math.random()*3)]
+);
+
+randomPhoto.style.display="block";
+
+randomPhoto.style.left=
+Math.random()*70+"%";
+
+randomPhoto.style.top=
+Math.random()*60+"%";
+
+}
+}
+
+function createHearts(){
+
+let heart=document.createElement("div");
+
+heart.classList.add("floating");
+
+heart.innerHTML=["❤️","⭐","💙"][Math.floor(Math.random()*3)];
+
+heart.style.left=Math.random()*100+"%";
+
+heart.style.fontSize=
+(20+Math.random()*30)+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},5000);
+
+}
+
+setInterval(createHearts,400);
+
+</script>
+
+</body>
+</html>
